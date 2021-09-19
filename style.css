@@ -1,0 +1,117 @@
+body{
+    
+    background-color: burlywood;
+    margin: auto;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(104, 58, 58, 0.801);
+    color: white;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+}
+.produits{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+a{
+   
+    color:inherit;
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+header{
+    background-image: url(http://localhost:3000/images/vcam_2.jpg) ;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    margin-top: -20px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+}
+.introduction{
+    color: white;
+}
+/*header::before{
+    content:"";
+}*/
+.produit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vw;
+}
+img{
+    width: 320px;
+    height: 320px;
+    border-radius: 15px;
+}
+figure{
+    width: 320px;
+    height: 320px;
+    padding: 10px;
+    border-radius: 15px;
+}
+figcaption{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color:rgba(104, 58, 58, 0.801) ;
+    color: white;
+    margin-top: -40px;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+    padding: 10px;
+}
+footer{
+    display: flex;
+    align-items: center;
+    background-color: rgb(104, 58, 58, 0.801);
+    height: 50px;
+    color: white;
+    
+}
+.contact{
+    margin-left: 20px;
+}
+
+/*-----------panier---------*/
+.main-panier{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-produit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    border: 2px solid;
+    width: 50%;
+    height: 6rem;
+   
+   
+}
+.panier-produit{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: teal;
+}
+.montant-total{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: rgb(128, 0, 11);
+}
