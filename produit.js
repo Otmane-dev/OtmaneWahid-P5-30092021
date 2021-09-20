@@ -35,7 +35,7 @@ ajouterAuPanier(data);
         let selectProduit = {
           imageUrl:data.imageUrl,
           name: data.name,
-          produit: data._id ,
+          _id: data._id ,
           quantite: 1,
           price: data.price /100,
       }
