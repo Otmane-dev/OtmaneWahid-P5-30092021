@@ -1,17 +1,17 @@
 body{
     
-    background-color: burlywood;
+    background-color: tomato;
     margin: auto;
 }
 .navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(104, 58, 58, 0.801);
     color: white;
     align-items: center;
     padding: 10px;
     height: 50px;
+    font-size: 1.4rem;
 }
 .produits{
     display: flex;
@@ -32,6 +32,7 @@ header{
     height: 300px;
     background-size: cover;
     margin-top: -20px;
+    border-radius: 12px;
 }
 h2{
     display: flex;
@@ -47,7 +48,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10vw;
+    margin-bottom: 100px;
 }
 img{
     width: 320px;
@@ -64,7 +65,7 @@ figcaption{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color:rgba(104, 58, 58, 0.801) ;
+    background-color:rgba(12, 12, 12, 0.801) ;
     color: white;
     margin-top: -40px;
     position: relative;
@@ -74,13 +75,14 @@ figcaption{
 footer{
     display: flex;
     align-items: center;
-    background-color: rgb(104, 58, 58, 0.801);
+    background-color: rgb(12 12 12 / 30%) ;
     height: 50px;
     color: white;
     
 }
 .contact{
     margin-left: 20px;
+    font-size: 1.4rem;
 }
 
 /*-----------panier---------*/
@@ -97,7 +99,9 @@ footer{
     
     border: 2px solid;
     width: 50%;
-   
+    background-color: rgb(128 0 11 / 0%);
+    border-radius: 12px;
+    box-shadow: 0px 0px 23px 0px;
    
 }
 .panier-produit{
@@ -105,7 +109,8 @@ footer{
     justify-content: space-between;
     flex-grow: 1;
     flex-shrink: 1;
-    background-color: teal;
+    padding: 10px;
+    font-size: 1.2rem;
 }
 .montant-total{
     display: flex;
@@ -113,6 +118,7 @@ footer{
     flex-grow: 1;
     flex-shrink: 1;
     background-color: rgb(128, 0, 11);
+    font-size: 1.3rem;
 }
 
 
@@ -120,9 +126,59 @@ footer{
     border: 2px black solid;
     display: flex;
     flex-direction: column;
+    background-color: rgb(128 0 11 / 0%);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 23px 0px;
 }
 
 form{
     display: flex;
     flex-direction: column;
+}
+
+/*commande*/
+#commande{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 50px;
+    margin: 16vh;
+    font-size: 1.2rem;
+    background-color: rgb(128 0 11 / 0%);
+    border-radius: 12px;
+    box-shadow: 0px 0px 23px 0px;
+}
+label{
+    margin: 10px;
+    font-size: 1.2rem;
+ 
+}
+
+.affichage-prix-html {
+    text-align: center;
+    color: white;
+    font-size: 1.6rem;
+}
+
+/*button*/
+button{
+    width: 50%;
+    margin-left: 25%;
+    color: white;
+    background-color: green;
+    border-radius: 12px;
+    font-size: 1.1rem;
+}
+button.btn-vider-panier{
+    background-color: red;
+}
+button.btn-supprimer {
+    width: 100%;
+    margin-left: 0;
+    color: white;
+    background-color: red;
+    border-radius: 12px;
 }
