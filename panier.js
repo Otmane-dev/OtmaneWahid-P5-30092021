@@ -27,7 +27,7 @@ panier.innerHTML = panierVide;
                 <div>${productsListe[i].quantite}</div>
                 <div>${productsListe[i].name}</div>
                 <div>${productsListe[i].price}€ </div>
-                <div><button class="btn-supprimer">supprimer</button></div>
+                <div><button class="btn-supprimer" id="btn-supprime">supprimer</button></div>
             </div>`;
     }
     
@@ -42,7 +42,7 @@ panier.innerHTML = panierVide;
 
 //------- btn supprimé----
 
-let btn_supprimer = document.querySelectorAll(".btn-supprimer");
+let btn_supprimer = document.querySelectorAll("#btn-supprime");
 //console.log(btn_supprimer);
 
 for (let j = 0 ; j < btn_supprimer.length; j++){
@@ -69,10 +69,11 @@ const btn_vider_panier_html = `
 panier.insertAdjacentHTML("beforeend",btn_vider_panier_html);
 
 const btn_vider_panier = document.querySelector(".btn-vider-panier");
-//console.log(btn_vider_panier);
+console.log("btn_vider_panier");
+console.log(btn_vider_panier);
 
 btn_vider_panier.addEventListener("click", (k) => {
-   k.preventDefault ;
+   k.preventDefault ();
 
     localStorage.removeItem("produit");
 
@@ -165,6 +166,10 @@ btnEnvoyerFormulaire.addEventListener("click",(e)=> {
         email: document.querySelector("#email").value,
     }
     let products = productsListe.map((product) => product._id);
+
+    //------validation du formulaire---------
+
+
 
     const aEnvoyer = {
         products,
