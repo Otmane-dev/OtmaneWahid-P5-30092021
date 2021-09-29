@@ -1,6 +1,6 @@
 body{
     
-    background-color: tomato;
+    background-color: black;
     margin: auto;
 }
 .navbar{
@@ -33,6 +33,7 @@ header{
     background-size: cover;
     margin-top: -20px;
     border-radius: 12px;
+    box-shadow: 0px 0px 20px 4px white;
 }
 h2{
     display: flex;
@@ -54,12 +55,14 @@ img{
     width: 320px;
     height: 320px;
     border-radius: 15px;
+    
 }
 figure{
     width: 320px;
     height: 320px;
-    padding: 10px;
+   /* padding: 10px;*/
     border-radius: 15px;
+    box-shadow: 0px 0px 20px 4px white;
 }
 figcaption{
     display: flex;
@@ -71,6 +74,7 @@ figcaption{
     position: relative;
     border-radius: 0px 0px 15px 15px;
     padding: 10px;
+    box-shadow: 0px 0px 20px 2px white;
 }
 footer{
     display: flex;
@@ -78,6 +82,7 @@ footer{
     background-color: rgb(12 12 12 / 30%) ;
     height: 50px;
     color: white;
+    box-shadow: 0px 0px 20px 2px white;
     
 }
 .contact{
@@ -99,9 +104,9 @@ footer{
     
     border: 2px solid;
     width: 50%;
-    background-color: rgb(128 0 11 / 0%);
+    background-color: #e8e5e5;
     border-radius: 12px;
-    box-shadow: 0px 0px 23px 0px;
+    box-shadow:0px 0px 20px 4px white;
    
 }
 .panier-produit{
@@ -126,11 +131,11 @@ footer{
     border: 2px black solid;
     display: flex;
     flex-direction: column;
-    background-color: rgb(128 0 11 / 0%);
+    background-color: #e8e5e5;
     margin: 20px;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 0px 0px 23px 0px;
+    box-shadow: 0px 0px 20px 4px white;
 }
 
 form{
@@ -147,9 +152,9 @@ form{
     height: 50px;
     margin: 16vh;
     font-size: 1.2rem;
-    background-color: rgb(128 0 11 / 0%);
+    background-color: #e8e5e5;
     border-radius: 12px;
-    box-shadow: 0px 0px 23px 0px;
+    box-shadow: 0px 0px 20px 4px white;
 }
 label{
     margin: 10px;
@@ -159,26 +164,29 @@ label{
 
 .affichage-prix-html {
     text-align: center;
-    color: white;
+    color: red;
     font-size: 1.6rem;
 }
 
 /*button*/
 button{
-    width: 50%;
+    width: 55%;
     margin-left: 25%;
-    color: white;
-    background-color: green;
-    border-radius: 12px;
+    background-color: black;
+    border-radius: 5px;
     font-size: 1.1rem;
+    color: rgb(68 239 89);
+    box-shadow: 0px 0px 20px 2px white;
+    cursor: pointer;
 }
 button.btn-vider-panier{
-    background-color: red;
+    background-color: black;
+    color: red;
 }
 button.btn-supprimer {
     width: 100%;
     margin-left: 0;
-    color: white;
-    background-color: red;
-    border-radius: 12px;
+    color: red;
+    background-color: black;
+    border-radius: 5px;
 }
