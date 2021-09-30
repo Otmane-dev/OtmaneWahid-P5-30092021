@@ -116,6 +116,7 @@ footer{
 .panier-produit{
     display: flex;
     justify-content: space-between;
+    align-items: end;
     flex-grow: 1;
     flex-shrink: 1;
     padding: 10px;
