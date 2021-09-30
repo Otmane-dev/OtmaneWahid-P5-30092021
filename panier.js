@@ -6,13 +6,14 @@ productsListe = JSON.parse(localStorage.getItem("panier")) ;
 
 
 //------------------affichage produit du panier-------------------------------
-let panier = document.querySelector(".container-produit");
-//console.log(panier);
+const panier = document.querySelector(".container-produit");
+console.log(panier);
+
 
 
 //---------------- si le panier est vide affiché panier vide---
 if(productsListe === null || productsListe == 0){
-let panierVide = `
+const panierVide = `
 <div class="container-panier-vide>
     <div>le panier est vide</div>
 </div>`;
@@ -64,18 +65,18 @@ for (let j = 0 ; j < btn_supprimer.length; j++){
 
 //-----vider le pagner---------
 const btn_vider_panier_html = `
-<button class="btn-vider-panier">Vider le panier</button>`;
+<button class="btn-vider-panier" id="btn-vider-panier">Vider le panier</button>`;
 
-panier.insertAdjacentHTML("beforeend",btn_vider_panier_html);
+panier.insertAdjacentHTML("beforeend", btn_vider_panier_html);
 
-const btn_vider_panier = document.querySelector(".btn-vider-panier");
+const btn_vider_panier = document.querySelector("#btn-vider-panier");
 console.log("btn_vider_panier");
 console.log(btn_vider_panier);
 
-btn_vider_panier.addEventListener("click", (k) => {
-   k.preventDefault ();
+btn_vider_panier.addEventListener("click", (e) => {
+   e.preventDefault;
 
-    localStorage.removeItem("produit");
+    localStorage.removeItem("panier");
 
     alert("Le panier va être vider");
 
