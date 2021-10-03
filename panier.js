@@ -84,27 +84,7 @@ btn_vider_panier.addEventListener("click", (e) => {
 
 });
 
-//------total du prix du panier---------
-let prixTotalCalcul = [];
 
-for (let m = 0; m < productsListe.length; m++) {
-
-    let prixProduitPanier = productsListe[m].price;
-
-    prixTotalCalcul.push(prixProduitPanier)
-
-    //console.log(prixTotalCalcu);
-};
-
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-const prixTotal = prixTotalCalcul.reduce(reducer, 0);
-console.log(prixTotal);
-
-localStorage.setItem("prixTotal", prixTotal);
-const affichagePrixHtml = `
-<div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
-
-panier.insertAdjacentHTML("beforeend", affichagePrixHtml);
 
 
 //----bloc formulaire----
@@ -174,10 +154,10 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     }
 
     //-----fonction pour l'affichage erreur si champ mal rempli
-    function dataChampManquantTextVide(querySelectorId){
+    function dataChampManquantTextVide(querySelectorId) {
         document.querySelector(`#${querySelectorId}`).textContent = "";
     }
-    function dataChampManquantText(querySelectorId){
+    function dataChampManquantText(querySelectorId) {
         document.querySelector(`#${querySelectorId}`).textContent = "Veuillez bien remplir ce champ";
     }
 
@@ -251,12 +231,37 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
             return false;
         }
     };
+ //////////////////////////////////prix total a envoyer /////////////////////////////////
+    function prixTotalPanier (){
+            //------total du prix du panier---------
+            let prixTotalCalcul = [];
 
-
+            for (let m = 0; m < productsListe.length; m++) {
+    
+                let prixProduitPanier = productsListe[m].price;
+    
+                prixTotalCalcul.push(prixProduitPanier)
+    
+                //console.log(prixTotalCalcu);
+            };
+    
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            const prixTotal = prixTotalCalcul.reduce(reducer, 0);
+            console.log(prixTotal);
+    
+            localStorage.setItem("prixTotal", prixTotal);
+            const affichagePrixHtml = `
+            <div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
+    
+            panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
+            //------FIN total du prix du panier---------
+    }
+////////////////////////////////////////////////////////////////////////////////////
     const aEnvoyer = {
         products,
         contact
     }
+    
     let options = {
         method: 'POST', // or 'PUT'
         headers: {
@@ -264,7 +269,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         },
         body: JSON.stringify(aEnvoyer),
     };
-    
+////////////////////////try{ const contenu = await reponse.json();....jusqua .catch fin.....}
     if (prenomControle() && nomControle() && adresseControle() && villeControle() && emailControle()) {
 
         fetch('http://localhost:3000/api/cameras/order', options)
@@ -274,16 +279,20 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
                 localStorage.setItem("orderId", data.orderId);
                 window.location.href = "commande.html";
             })
-            .catch((error) => {
-                console.error('Error:', error);
-                return true;
-            });
+            prixTotalPanier()
+
+    
+            .catch ((error) => {
+            console.error('Error:', error);
+            return true;
+        });
     } else {
-        alert("veuillez bien remplir le formulaire");
-        return false;
-    }
-    console.log("aEnvoyer");
-    console.log(aEnvoyer);
+    alert("veuillez bien remplir le formulaire");
+    return false
+}
+//////.catch//////////////////////////////
+console.log("aEnvoyer");
+console.log(aEnvoyer);
 })
 
 
