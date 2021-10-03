@@ -15,3 +15,7 @@ function viderCleLocalStorage(key){
 viderCleLocalStorage("orderId");
 viderCleLocalStorage("prixTotal");
 viderCleLocalStorage("panier");
+////// revenir a la page d'acceuilsi reponse null
+if(orderId == null || prixTotal== null){
+    window.location.href="index.html";
+}
