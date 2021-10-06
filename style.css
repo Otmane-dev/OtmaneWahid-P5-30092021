@@ -1,9 +1,9 @@
-body{
-    
+body {
     background-color: black;
     margin: auto;
 }
-.navbar{
+
+.navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,66 +13,76 @@ body{
     height: 50px;
     font-size: 1.4rem;
 }
-.produits{
+
+.produits {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
-a{
-   
-    color:inherit;
+
+a {
+    color: inherit;
     text-decoration: none;
 }
-li{
+
+li {
     list-style-type: none;
 }
-header{
-    background-image: url(http://localhost:3000/images/vcam_2.jpg) ;
+
+header {
+    background-image: url(http://localhost:3000/images/vcam_2.jpg);
     width: 95%;
-    margin:auto;
+    margin: auto;
     height: 300px;
     background-size: cover;
     border-radius: 12px;
     box-shadow: 0px 0px 20px 4px white;
 }
-h2{
+
+h2 {
     display: flex;
     justify-content: center;
 }
-.h2-panier{
+
+.h2-panier {
     color: white;
 }
 
-.introduction{
+.introduction {
     color: white;
 }
+
+
 /*header::before{
     content:"";
 }*/
-.produit{
+
+.produit {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 130px;
 }
-img{
+
+img {
     width: 320px;
     height: 320px;
     border-radius: 15px;
-    
 }
-figure{
+
+figure {
     width: 320px;
     height: 320px;
     border-radius: 15px;
     box-shadow: 0px 0px 20px 4px white;
 }
-figcaption{
+
+figcaption {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color:rgba(12, 12, 12, 0.801) ;
+    background-color: rgba(12, 12, 12, 0.801);
     color: white;
     margin-top: -40px;
     position: relative;
@@ -80,28 +90,32 @@ figcaption{
     padding: 10px;
     box-shadow: 0px 0px 20px 2px white;
 }
-footer{
+
+footer {
     display: flex;
     align-items: center;
-    background-color: rgb(12 12 12 / 30%) ;
+    background-color: rgb(12 12 12 / 30%);
     height: 50px;
     color: white;
     box-shadow: 0px 0px 20px 2px white;
-    
 }
-.contact{
+
+.contact {
     margin-left: 20px;
     font-size: 1.4rem;
 }
 
+
 /*-----------panier---------*/
-.main-panier{
+
+.main-panier {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
 }
-.container-produit{
+
+.container-produit {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -111,10 +125,10 @@ footer{
     min-width: 295px;
     background-color: #e8e5e5;
     border-radius: 12px;
-    box-shadow:0px 0px 20px 4px white;
-   
+    box-shadow: 0px 0px 20px 4px white;
 }
-.panier-produit{
+
+.panier-produit {
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -123,7 +137,8 @@ footer{
     padding: 10px;
     font-size: 1.2rem;
 }
-.container-panier-vide{
+
+.container-panier-vide {
     display: flex;
     justify-content: center;
     align-items: end;
@@ -131,7 +146,8 @@ footer{
     font-size: 1.5rem;
     font-weight: 900;
 }
-.montant-total{
+
+.montant-total {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
@@ -140,8 +156,7 @@ footer{
     font-size: 1.3rem;
 }
 
-
-#formulaireCommande{
+#formulaireCommande {
     border: 2px black solid;
     display: flex;
     flex-direction: column;
@@ -156,13 +171,15 @@ footer{
     margin-bottom: 30px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
 }
 
+
 /*commande*/
-#commande{
+
+#commande {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,12 +193,13 @@ form{
     box-shadow: 0px 0px 20px 4px white;
     min-width: 300px;
 }
-label{
+
+label {
     margin: 10px;
     font-size: 1.2rem;
- 
 }
-.infoChampManquant{
+
+.infoChampManquant {
     color: red;
     font-weight: 900;
 }
@@ -193,8 +211,10 @@ label{
     font-size: 1.6rem;
 }
 
+
 /*button*/
-button{
+
+button {
     width: 55%;
     margin-left: 25%;
     margin-top: 10px;
@@ -205,10 +225,12 @@ button{
     box-shadow: 0px 0px 20px 2px white;
     cursor: pointer;
 }
-button.btn-vider-panier{
+
+button.btn-vider-panier {
     background-color: black;
     color: red;
 }
+
 button.btn-supprimer {
     width: 100%;
     margin-left: 0;
@@ -216,19 +238,18 @@ button.btn-supprimer {
     background-color: black;
     border-radius: 5px;
 }
-@media screen and (max-width:600px){
 
-
-    .container-produit{
+@media screen and (max-width:600px) {
+    .container-produit {
         width: 80%;
     }
-    #formulaireCommande{
+    #formulaireCommande {
         width: 80%;
     }
-
 }
-@media screen and (max-width:600px){
-    #commande{
+
+@media screen and (max-width:600px) {
+    #commande {
         width: 50%;
         margin: auto;
         margin-bottom: 21vh;
