@@ -123,6 +123,14 @@ footer{
     padding: 10px;
     font-size: 1.2rem;
 }
+.container-panier-vide{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
 .montant-total{
     display: flex;
     justify-content: space-between;

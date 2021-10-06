@@ -3,7 +3,7 @@ prixTotal = localStorage.getItem("prixTotal") ;
 
 let commande = document.querySelector("#commande");
 
-commande.innerHTML = "Numero de la commande: "+orderId+"<br>"+"Prix total: "+prixTotal+"€"+"<br>"+"Au plaisir de vous revoir";
+commande.innerHTML = "Numero de la commande: "+orderId+"<br>"+"Prix total: "+prixTotal+" €"+"<br>"+"Au plaisir de vous revoir";
 
 console.log(orderId);
 

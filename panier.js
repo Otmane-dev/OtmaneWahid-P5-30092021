@@ -7,14 +7,14 @@ productsListe = JSON.parse(localStorage.getItem("panier"));
 
 //------------------affichage produit du panier-------------------------------
 const panier = document.querySelector(".container-produit");
-console.log(panier);
+//console.log(panier);
 
 
 
 //---------------- si le panier est vide affiché panier vide---
 if (productsListe === null || productsListe == 0) {
     const panierVide = `
-<div class="container-panier-vide>
+<div class="container-panier-vide">
     <div>le panier est vide</div>
 </div>`;
     panier.innerHTML = panierVide;
@@ -70,8 +70,8 @@ const btn_vider_panier_html = `
 panier.insertAdjacentHTML("beforeend", btn_vider_panier_html);
 
 const btn_vider_panier = document.querySelector("#btn-vider-panier");
-console.log("btn_vider_panier");
-console.log(btn_vider_panier);
+//console.log("btn_vider_panier");
+//console.log(btn_vider_panier);
 
 btn_vider_panier.addEventListener("click", (e) => {
     e.preventDefault;
@@ -149,11 +149,12 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     let products = productsListe.map((product) => product._id);
 
     //------validation du formulaire---------
+    //----------text alert pop-up---------------
     const textAlert = (value) => {
         return `${value}:Chiffre et symbole ne sont pas autorisé \n Ne pas dépasser 20 caractères, minimum 3 caractères`;
     }
 
-    //-----fonction pour l'affichage erreur si champ mal rempli
+    //-----fonction pour l'affichage erreur si champ mal rempli et mets un message d'erreur directement sur le champs de formulaire mal remplis
     function dataChampManquantTextVide(querySelectorId) {
         document.querySelector(`#${querySelectorId}`).textContent = "";
     }
@@ -162,6 +163,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     }
 
     //--------------fin---------
+    //------------------------ function du formulaire -------------------------------
     function prenomControle() {
         const lePrenom = contact.firstName;
         if (/^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(lePrenom)) {
@@ -231,6 +233,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
             return false;
         }
     };
+    ////-----------------fin des function formulaire --------------------------------
  //////////////////////////////////prix total a envoyer /////////////////////////////////
     function prixTotalPanier (){
             //------total du prix du panier---------
@@ -269,7 +272,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         },
         body: JSON.stringify(aEnvoyer),
     };
-////////////////////////try{ const contenu = await reponse.json();....jusqua .catch fin.....}
+////////////////////////envoi du post pour que l'api envoi id de confirmation.....}
     if (prenomControle() && nomControle() && adresseControle() && villeControle() && emailControle()) {
 
         fetch('http://localhost:3000/api/cameras/order', options)
@@ -290,7 +293,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     alert("veuillez bien remplir le formulaire");
     return false
 }
-//////.catch//////////////////////////////
+//////fetch fin//////////////////////////////
 console.log("aEnvoyer");
 console.log(aEnvoyer);
 })
