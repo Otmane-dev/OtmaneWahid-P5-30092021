@@ -57,7 +57,7 @@ function ajouterAuPanier(data) {
         console.log(productsListe);
       }
 
-    
+
     }
 
 

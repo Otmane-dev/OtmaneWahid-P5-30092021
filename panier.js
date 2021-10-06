@@ -234,37 +234,37 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         }
     };
     ////-----------------fin des function formulaire --------------------------------
- //////////////////////////////////prix total a envoyer /////////////////////////////////
-    function prixTotalPanier (){
-            //------total du prix du panier---------
-            let prixTotalCalcul = [];
+    //////////////////////////////////prix total a envoyer /////////////////////////////////
+    function prixTotalPanier() {
+        //------total du prix du panier---------
+        let prixTotalCalcul = [];
 
-            for (let m = 0; m < productsListe.length; m++) {
-    
-                let prixProduitPanier = productsListe[m].price;
-    
-                prixTotalCalcul.push(prixProduitPanier)
-    
-                //console.log(prixTotalCalcu);
-            };
-    
-            const reducer = (accumulator, currentValue) => accumulator + currentValue;
-            const prixTotal = prixTotalCalcul.reduce(reducer, 0);
-            console.log(prixTotal);
-    
-            localStorage.setItem("prixTotal", prixTotal);
-            const affichagePrixHtml = `
+        for (let m = 0; m < productsListe.length; m++) {
+
+            let prixProduitPanier = productsListe[m].price;
+
+            prixTotalCalcul.push(prixProduitPanier)
+
+            //console.log(prixTotalCalcu);
+        };
+
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        const prixTotal = prixTotalCalcul.reduce(reducer, 0);
+        console.log(prixTotal);
+
+        localStorage.setItem("prixTotal", prixTotal);
+        const affichagePrixHtml = `
             <div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
-    
-            panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
-            //------FIN total du prix du panier---------
+
+        panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
+        //------FIN total du prix du panier---------
     }
-////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////
     const aEnvoyer = {
         products,
         contact
     }
-    
+
     let options = {
         method: 'POST', // or 'PUT'
         headers: {
@@ -272,7 +272,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         },
         body: JSON.stringify(aEnvoyer),
     };
-////////////////////////envoi du post pour que l'api envoi id de confirmation.....}
+    ////////////////////////envoi du post pour que l'api envoi id de confirmation.....}
     if (prenomControle() && nomControle() && adresseControle() && villeControle() && emailControle()) {
 
         fetch('http://localhost:3000/api/cameras/order', options)
@@ -282,20 +282,20 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
                 localStorage.setItem("orderId", data.orderId);
                 window.location.href = "commande.html";
             })
-            prixTotalPanier()
+        prixTotalPanier()
 
-    
-            .catch ((error) => {
-            console.error('Error:', error);
-            return true;
-        });
+
+            .catch((error) => {
+                console.error('Error:', error);
+                return true;
+            });
     } else {
-    alert("veuillez bien remplir le formulaire");
-    return false
-}
-//////fetch fin//////////////////////////////
-console.log("aEnvoyer");
-console.log(aEnvoyer);
+        alert("veuillez bien remplir le formulaire");
+        return false
+    }
+    //////fetch fin//////////////////////////////
+    console.log("aEnvoyer");
+    console.log(aEnvoyer);
 })
 
 
