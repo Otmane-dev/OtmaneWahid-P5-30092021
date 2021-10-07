@@ -1,4 +1,3 @@
-
 //------------------------déclaration de la variable ------------------------
 productsListe = JSON.parse(localStorage.getItem("panier"));
 //console.log(productsListe);
@@ -158,6 +157,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     function dataChampManquantTextVide(querySelectorId) {
         document.querySelector(`#${querySelectorId}`).textContent = "";
     }
+
     function dataChampManquantText(querySelectorId) {
         document.querySelector(`#${querySelectorId}`).textContent = "Veuillez bien remplir ce champ";
     }
@@ -257,8 +257,9 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
             <div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
 
         panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
-        //------FIN total du prix du panier---------
+
     }
+    //------FIN total du prix du panier---------
     ////////////////////////////////////////////////////////////////////////////////////
     const aEnvoyer = {
         products,
@@ -285,10 +286,10 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         prixTotalPanier()
 
 
-            .catch((error) => {
-                console.error('Error:', error);
-                return true;
-            });
+        .catch((error) => {
+            console.error('Error:', error);
+            return true;
+        });
     } else {
         alert("veuillez bien remplir le formulaire");
         return false
@@ -297,5 +298,3 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     console.log("aEnvoyer");
     console.log(aEnvoyer);
 })
-
-
