@@ -1,10 +1,10 @@
 let produit = document.querySelector(".produit");
 fetch('http://localhost:3000/api/cameras/' + location.search.split('id=')[1])
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
 
-    produit.innerHTML += `
+        produit.innerHTML += `
           
             <figure>
                 <img src=${data.imageUrl}>
@@ -21,49 +21,47 @@ fetch('http://localhost:3000/api/cameras/' + location.search.split('id=')[1])
            
           
           `;
-    ajouterAuPanier(data);
+        ajouterAuPanier(data);
 
-  });
+    });
 
 function ajouterAuPanier(data) {
-  let btn_envoiPanier = document.getElementById("btn-envoyer");
+    let btn_envoiPanier = document.getElementById("btn-envoyer");
 
-  btn_envoiPanier.addEventListener("click", (event) => {
-    event.preventDefault();
+    btn_envoiPanier.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    let selectProduit = {
-      imageUrl: data.imageUrl,
-      name: data.name,
-      _id: data._id,
-      quantite: 1,
-      price: data.price / 100,
-    }
-    let productsListe = [];
+        let selectProduit = {
+            imageUrl: data.imageUrl,
+            name: data.name,
+            _id: data._id,
+            quantite: 1,
+            price: data.price / 100,
+        }
+        let productsListe = [];
 
-    if (localStorage.getItem("panier") === null) {
-      //...
+        if (localStorage.getItem("panier") === null) {
+            //...
 
-      productsListe.push(selectProduit);
+            productsListe.push(selectProduit);
 
-      localStorage.setItem("panier", JSON.stringify(productsListe));
-      console.log(productsListe);
+            localStorage.setItem("panier", JSON.stringify(productsListe));
+            console.log(productsListe);
 
-    } else {
-      productsListe = JSON.parse(localStorage.getItem("panier"));
-      if (productsListe.filter(e => e._id === selectProduit._id).length == 0) {
-        productsListe.push(selectProduit);
+        } else {
+            productsListe = JSON.parse(localStorage.getItem("panier"));
+            if (productsListe.filter(e => e._id === selectProduit._id).length == 0) {
+                productsListe.push(selectProduit);
 
-        localStorage.setItem("panier", JSON.stringify(productsListe));
-        console.log(productsListe);
-      }
-
-
-    }
+                localStorage.setItem("panier", JSON.stringify(productsListe));
+                console.log(productsListe);
+            }
 
 
+        }
 
-  });
+
+
+    });
 
 }
-
-
