@@ -85,6 +85,7 @@ btn_vider_panier.addEventListener("click", (e) => {
 
 
 //------total du prix du panier---------
+//////////////////////////////////prix total a envoyer /////////////////////////////////
 let prixTotalCalcul = [];
 
 for (let m = 0; m < productsListe.length; m++) {
@@ -257,7 +258,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         }
     };
     ////-----------------fin des function formulaire --------------------------------
-    //////////////////////////////////prix total a envoyer /////////////////////////////////
+
 
     ////////////////////////////////////////////////////////////////////////////////////
     const aEnvoyer = {
