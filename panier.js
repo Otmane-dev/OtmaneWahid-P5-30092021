@@ -243,6 +243,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
         }
     };
     ////-----------------fin des function formulaire --------------------------------
+    //opérateur ternaire pour afficher "veuiller bien remplir ce champ" dans le formulaire 
     prenomControle() == true ? dataChampManquantTextVide("prenomManquant") : dataChampManquantText("prenomManquant");
     nomControle() == true ? dataChampManquantTextVide("nomManquant") : dataChampManquantText("nomManquant");
     adresseControle() == true ? dataChampManquantTextVide("adresseManquant") : dataChampManquantText("adresseManquant");
