@@ -1,4 +1,9 @@
 let produit = document.querySelector(".produit");
+const queryString_url_id = window.location.search;
+console.log(queryString_url_id);
+
+const urlSearchParams = new URLSearchParams(queryString_url_id);
+console.log(urlSearchParams);
 fetch('http://localhost:3000/api/cameras/' + location.search.split('id=')[1])
     .then(response => response.json())
     .then(data => {
@@ -24,6 +29,7 @@ fetch('http://localhost:3000/api/cameras/' + location.search.split('id=')[1])
         ajouterAuPanier(data);
 
     });
+
 
 function ajouterAuPanier(data) {
     let btn_envoiPanier = document.getElementById("btn-envoyer");

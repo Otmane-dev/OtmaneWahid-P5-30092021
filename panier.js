@@ -84,6 +84,29 @@ btn_vider_panier.addEventListener("click", (e) => {
 });
 
 
+//------total du prix du panier---------
+let prixTotalCalcul = [];
+
+for (let m = 0; m < productsListe.length; m++) {
+
+    let prixProduitPanier = productsListe[m].price;
+
+    prixTotalCalcul.push(prixProduitPanier)
+
+    //console.log(prixTotalCalcu);
+};
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const prixTotal = prixTotalCalcul.reduce(reducer, 0);
+console.log(prixTotal);
+
+localStorage.setItem("prixTotal", prixTotal);
+const affichagePrixHtml = `
+        <div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
+
+panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
+    //------FIN total du prix du panier---------
+
 
 
 //----bloc formulaire----
@@ -235,31 +258,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     };
     ////-----------------fin des function formulaire --------------------------------
     //////////////////////////////////prix total a envoyer /////////////////////////////////
-    function prixTotalPanier() {
-        //------total du prix du panier---------
-        let prixTotalCalcul = [];
 
-        for (let m = 0; m < productsListe.length; m++) {
-
-            let prixProduitPanier = productsListe[m].price;
-
-            prixTotalCalcul.push(prixProduitPanier)
-
-            //console.log(prixTotalCalcu);
-        };
-
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        const prixTotal = prixTotalCalcul.reduce(reducer, 0);
-        console.log(prixTotal);
-
-        localStorage.setItem("prixTotal", prixTotal);
-        const affichagePrixHtml = `
-            <div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
-
-        panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
-
-    }
-    //------FIN total du prix du panier---------
     ////////////////////////////////////////////////////////////////////////////////////
     const aEnvoyer = {
         products,
@@ -283,7 +282,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
                 localStorage.setItem("orderId", data.orderId);
                 window.location.href = "commande.html";
             })
-        prixTotalPanier()
+
 
 
         .catch((error) => {
