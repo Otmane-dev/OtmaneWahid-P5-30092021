@@ -191,13 +191,10 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     function prenomControle() {
         const lePrenom = contact.firstName;
         if (/^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(lePrenom)) {
-            console.log("ok");
-            dataChampManquantTextVide("prenomManquant");
+
             return true;
         } else {
-            dataChampManquantText("prenomManquant");
-            console.log("ko");
-            alert(textAlert("Prénom"));
+
             return false;
         }
     };
@@ -205,13 +202,10 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     function nomControle() {
         const leNom = contact.lastName;
         if (/^[A-Za-z]{3,20}$/.test(leNom)) {
-            console.log("ok");
-            dataChampManquantTextVide("nomManquant");
+
             return true;
         } else {
-            console.log("ko");
-            dataChampManquantText("nomManquant");
-            alert(textAlert("Nom"));
+
             return false;
         }
     };
@@ -219,13 +213,10 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     function adresseControle() {
         const lAdresse = contact.address;
         if (/^[A-Za-z0-9\s]{3,50}$/.test(lAdresse)) {
-            console.log("ok");
-            dataChampManquantTextVide("adresseManquant");
+
             return true;
         } else {
-            console.log("ko");
-            dataChampManquantText("adresseManquant");
-            alert("L'adresse doit contenir que des lettres sans ponctuation et des chiffres");
+
             return false;
         }
     };
@@ -233,13 +224,10 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     function villeControle() {
         const laVille = contact.city;
         if (/^[A-Za-z]{3,20}$/.test(laVille)) {
-            console.log("ok");
-            dataChampManquantTextVide("villeManquant");
+
             return true;
         } else {
-            console.log("ko");
-            dataChampManquantText("villeManquant");
-            alert(textAlert("Ville"));
+
             return false;
         }
     };
@@ -247,17 +235,19 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     function emailControle() {
         const lEmail = contact.email;
         if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(lEmail)) {
-            console.log("ok");
-            dataChampManquantTextVide("emailManquant");
+
             return true;
         } else {
-            console.log("ko");
-            dataChampManquantText("emailManquant");
-            alert("L'email n'est pas valide");
+
             return false;
         }
     };
     ////-----------------fin des function formulaire --------------------------------
+    prenomControle() == true ? dataChampManquantTextVide("prenomManquant") : dataChampManquantText("prenomManquant");
+    nomControle() == true ? dataChampManquantTextVide("nomManquant") : dataChampManquantText("nomManquant");
+    adresseControle() == true ? dataChampManquantTextVide("adresseManquant") : dataChampManquantText("adresseManquant");
+    villeControle() == true ? dataChampManquantTextVide("villeManquant") : dataChampManquantText("villeManquant");
+    emailControle() == true ? dataChampManquantTextVide("emailManquant") : dataChampManquantText("emailManquant");
 
 
     ////////////////////////////////////////////////////////////////////////////////////
