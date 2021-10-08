@@ -87,27 +87,33 @@ btn_vider_panier.addEventListener("click", (e) => {
 //------total du prix du panier---------
 //////////////////////////////////prix total a envoyer /////////////////////////////////
 let prixTotalCalcul = [];
+if (prixTotalCalcul === null) {
+    const affichagePrixHtmlVide = `
+    <div class="affichage-prix-html">Le prix total est de 0 €</div>
+    `;
+    panier.innerHTML = affichagePrixHtmlVide;
 
-for (let m = 0; m < productsListe.length; m++) {
 
-    let prixProduitPanier = productsListe[m].price;
+} else {
+    for (let m = 0; m < productsListe.length; m++) {
 
-    prixTotalCalcul.push(prixProduitPanier)
+        let prixProduitPanier = productsListe[m].price;
 
-    //console.log(prixTotalCalcu);
-};
+        prixTotalCalcul.push(prixProduitPanier)
 
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-const prixTotal = prixTotalCalcul.reduce(reducer, 0);
-console.log(prixTotal);
+        //console.log(prixTotalCalcu);
+    };
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    const prixTotal = prixTotalCalcul.reduce(reducer, 0);
+    console.log(prixTotal);
 
-localStorage.setItem("prixTotal", prixTotal);
-const affichagePrixHtml = `
+    localStorage.setItem("prixTotal", prixTotal);
+    const affichagePrixHtml = `
         <div class="affichage-prix-html">Le prix total est de :${prixTotal}€</div>`
 
-panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
-    //------FIN total du prix du panier---------
-
+    panier.insertAdjacentHTML("beforeend", affichagePrixHtml)
+        //------FIN total du prix du panier---------
+}
 
 
 //----bloc formulaire----
@@ -130,7 +136,7 @@ const afficherFormulaireHtml = () => {
                     <input type="text" id="nom" name="nom" required>
 
                     <label for="adresse">Adresse :</label><span id="adresseManquant" class="infoChampManquant"></span>
-                    <textarea id="adresse" name="adresse" required>
+                    <input id="adresse" name="adresse" required>
                     </textarea>
 
                     <label for="ville">Ville :</label><span id="villeManquant" class="infoChampManquant"></span>
@@ -173,9 +179,9 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 
     //------validation du formulaire---------
     //----------text alert pop-up---------------
-    const textAlert = (value) => {
-        return `${value}:Chiffre et symbole ne sont pas autorisé \n Ne pas dépasser 20 caractères, minimum 3 caractères`;
-    }
+    //const textAlert = (value) => {
+    // return `${value}:Chiffre et symbole ne sont pas autorisé \n Ne pas dépasser 20 caractères, minimum 3 caractères`;
+    //}
 
     //-----fonction pour l'affichage erreur si champ mal rempli et mets un message d'erreur directement sur le champs de formulaire mal remplis
     function dataChampManquantTextVide(querySelectorId) {
